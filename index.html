@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>2025-2026 CDGFSS Graduation Dinner</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #c5a880; /* Elegant champagne gold */
+            --primary-dark: #aa8f65;
+            --text-dark: #2c3e50;
+            --text-light: #606f7b;
+            --bg-light: #fcfbfa;
+            --card-bg: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Screen */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            position: relative;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.95) 0%, rgba(252,251,250,0.9) 100%),
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><path d="M30 0 L60 30 L30 60 L0 30 Z" fill="none" stroke="%23c5a880" stroke-width="0.3" stroke-opacity="0.3"/></svg>');
+            background-size: cover, 40px 40px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid rgba(197, 168, 128, 0.3);
+            pointer-events: none;
+        }
+
+        .hero-crest {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            line-height: 1.3;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 0 10px;
+        }
+
+        .hero-details {
+            margin-bottom: 3rem;
+            max-width: 320px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .detail-item svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            fill: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 0.9rem 2.5rem;
+            background-color: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(197, 168, 128, 0.3);
+            transition: var(--transition);
+        }
+
+        .cta-btn:active {
+            transform: scale(0.98);
+            background-color: var(--primary-dark);
+        }
+
+        /* Sticky Navigation Tab Bar */
+        .nav-bar {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            padding: 0;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .nav-bar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-tab {
+            flex: 1;
+            text-align: center;
+            padding: 1rem 0.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            transition: var(--transition);
+            min-width: 90px;
+        }
+
+        .nav-tab.active {
+            color: var(--primary);
+        }
+
+        .nav-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 3px 3px 0 0;
+        }
+
+        /* Content Sections */
+        .main-content {
+            padding: 1.5rem 1rem 4rem 1rem;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            font-size: 1.4rem;
+            margin: 2.5rem 0 1.5rem 0;
+            color: var(--text-dark);
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 1px;
+            background-color: var(--primary);
+        }
+
+        /* Link Cards Layout */
+        .links-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .link-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(197, 168, 128, 0.15);
+            border-radius: 16px;
+            padding: 1.25rem;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-dark);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            transition: var(--transition);
+        }
+
+        .link-card:active {
+            transform: scale(0.98);
+            background-color: #faf9f7;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(197, 168, 128, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .card-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary);
+        }
+
+        .card-info {
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .card-subtitle {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .card-arrow {
+            color: var(--primary);
+            opacity: 0.7;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-arrow svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* Map & Info Card */
+        .info-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(197, 168, 128, 0.15);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .info-heading {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-text {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            border-top: 1px solid rgba(197, 168, 128, 0.1);
+            margin-top: 3rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Hero Screen Section -->
+    <header class="hero" id="home">
+        <div class="hero-crest">✦</div>
+        <p class="hero-subtitle">Class of 2026</p>
+        <h1 class="hero-title">2025-2026 CDGFSS<br>Graduation Dinner</h1>
+        
+        <div class="hero-details">
+            <div class="detail-item">
+                <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+                <span>Thursday, 18 June, 2026</span>
+            </div>
+            <div class="detail-item" style="align-items: flex-start;">
+                <svg viewBox="0 0 24 24" style="margin-top: 3px;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-12-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span style="text-align: center;">Pacific Rooms, 9/F, Towers Wing,<br>Royal Pacific Hotel, Tsim Sha Tsui</span>
+            </div>
+        </div>
+
+        <a href="#directory" class="cta-btn">Explore Menu</a>
+    </header>
+
+    <!-- 2. Sticky Tab Navigation -->
+    <nav class="nav-bar" id="sticky-nav">
+        <a href="#home" class="nav-tab active" data-sec="home">Welcome</a>
+        <a href="#directory" class="nav-tab" data-sec="directory">Links</a>
+        <a href="#venue" class="nav-tab" data-sec="venue">Venue</a>
+    </nav>
+
+    <!-- 3. Main Content Area -->
+    <main class="main-content">
+        
+        <!-- Collection of Links Section -->
+        <section id="directory">
+            <h2 class="section-title">Event Directory</h2>
+            <div class="links-grid">
+                
+                <!-- Link 1: LED Photowall (Upload Page) -->
+                <a href="https://your-domain.com/photowall-upload" class="link-card" target="_blank" rel="noopener">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-title">LED Photowall Upload</div>
+                        <div class="card-subtitle">Share your memories to the main screen</div>
+                    </div>
+                    <div class="card-arrow">
+                        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                    </div>
+                </a>
+
+                <!-- Link 2: Lucky Draw Winners (Web Page) -->
+                <a href="https://your-domain.com/lucky-draw-winners" class="link-card" target="_blank" rel="noopener">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 12 10 10-4.48 10-12S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-title">Lucky Draw Winners</div>
+                        <div class="card-subtitle">Live updates on prize winners</div>
+                    </div>
+                    <div class="card-arrow">
+                        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                    </div>
+                </a>
+
+                <!-- Link 3: Programmes (PDF) -->
+                <a href="https://your-domain.com/documents/programme.pdf" class="link-card" target="_blank" rel="noopener">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-title">Official Programme</div>
+                        <div class="card-subtitle">View rundown & itinerary (PDF)</div>
+                    </div>
+                    <div class="card-arrow">
+                        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                    </div>
+                </a>
+
+                <!-- Link 4: Seating Plan (PDF) -->
+                <a href="https://your-domain.com/documents/seating-plan.pdf" class="link-card" target="_blank" rel="noopener">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 18v3h3v-3h10v3h3v-3h1c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h1zm2-12h12v2H6V6zm0 4h12v6H6v-6z"/></svg>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-title">Seating Plan</div>
+                        <div class="card-subtitle">Find your designated table (PDF)</div>
+                    </div>
+                    <div class="card-arrow">
+                        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Venue Section -->
+        <section id="venue">
+            <h2 class="section-title">Location & Venue</h2>
+            <div class="info-card">
+                <div class="info-heading">Address</div>
+                <div class="info-text">
+                    Pacific Rooms, 9/F, Towers Wing,<br>
+                    Royal Pacific Hotel, 33 Canton Road,<br>
+                    Tsim Sha Tsui, Kowloon, Hong Kong
+                </div>
+                
+                <div class="info-heading">Time</div>
+                <div class="info-text"> Reception starts at 6:30 PM </div>
+                
+                <a href="https://maps.google.com/?q=Royal+Pacific+Hotel+Tsim+Sha+Tsui" class="cta-btn" style="padding: 0.6rem 1.5rem; font-size: 0.8rem; display: block; text-align: center; margin-top: 1rem;" target="_blank" rel="noopener">
+                    Open in Google Maps
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2026 CDGFSS Graduation Dinner Committee.<br>All Rights Reserved.
+    </footer>
+
+    <!-- Active Tab Highlighting JavaScript -->
+    <script>
+        const sections = document.querySelectorAll('header, section');
+        const navTabs = document.querySelectorAll('.nav-tab');
+
+        window.addEventListener('scroll', () => {
+            let currentSec = 'home';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                // Add minor offset for responsive triggering
+                if (window.scrollY >= (sectionTop - 120)) {
+                    currentSec = section.getAttribute('id');
+                }
+            });
+
+            navTabs.forEach(tab => {
+                if (tab.getAttribute('data-sec') === currentSec) {
+                    tab.classList.add('active');
+                    // Automatically scroll tab bar smoothly if item overflows container horizontally
+                    tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
